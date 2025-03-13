@@ -4,7 +4,7 @@ import { comments } from "../data/comments";
 
 const commentRouter = Router ()
 
-commentRouter.get("/assignments/:id/comments", (req, res) => {
+commentRouter.get("/:id/comments", (req, res) => {
     const assignmentId = +req.params.id;
   
     const assignmentComments = comments.filter((comment) => {
@@ -16,7 +16,7 @@ commentRouter.get("/assignments/:id/comments", (req, res) => {
     });
   });
   
-  commentRouter.post("/assignments/:id/comments", (req, res) => {
+  commentRouter.post("/:id/comments", (req, res) => {
     const assignmentId = +req.params.id;
     const newComment = req.body;
     const commentId = comments[comments.length - 1].id + 1;
@@ -32,7 +32,7 @@ commentRouter.get("/assignments/:id/comments", (req, res) => {
     });
   });
   
-  commentRouter.delete("/assignments/:id/comments", (req, res) => {
+  commentRouter.delete("/:id/comments", (req, res) => {
     const assignmentId = +req.params.id;
   
     const hasFound = comments.find(
